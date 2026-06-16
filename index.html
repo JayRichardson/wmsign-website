@@ -1632,9 +1632,11 @@
     </div>
 
     <div class="contact-grid">
-      <form class="contact-form" id="offerte-form" name="offerte" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
-        <input type="hidden" name="form-name" value="offerte" />
-        <input type="hidden" name="_gotcha" style="display:none" />
+      <form class="contact-form" id="offerte-form" method="POST" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="access_key" value="a1f8327d-83ae-4ab0-8277-fb9a94ca78de" />
+        <input type="hidden" name="subject" value="Nieuwe offerte-aanvraag – WM Sign" />
+        <input type="hidden" name="from_name" value="WM Sign Website" />
+        <input type="checkbox" name="botcheck" style="display:none" />
 
         <!-- STAP 1: Dienst kiezen -->
         <div class="form-step" id="stap-1">
@@ -1980,14 +1982,18 @@
     const form = document.getElementById('offerte-form');
     const data = new FormData(form);
 
-    fetch('/', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data).toString()
+      body: data
     })
-    .then(() => {
-      document.getElementById('form-msg').style.display = 'block';
-      document.getElementById('dot-3').classList.add('done');
+    .then(res => res.json())
+    .then(result => {
+      if (result.success) {
+        document.getElementById('form-msg').style.display = 'block';
+        document.getElementById('dot-3').classList.add('done');
+      } else {
+        throw new Error(result.message);
+      }
     })
     .catch(() => {
       alert('Er ging iets mis bij het versturen. Probeer het opnieuw of bel ons direct.');
