@@ -1982,9 +1982,18 @@
     const form = document.getElementById('offerte-form');
     const data = new FormData(form);
 
+    // Alleen gevulde velden meesturen
+    const filteredData = new FormData();
+    const altijdMeesturen = ['access_key', 'subject', 'from_name', 'botcheck'];
+    for (const [key, value] of data.entries()) {
+      if (altijdMeesturen.includes(key) || (value && value.toString().trim() !== '')) {
+        filteredData.append(key, value);
+      }
+    }
+
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: data
+      body: filteredData
     })
     .then(res => res.json())
     .then(result => {
