@@ -111,7 +111,7 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
         "opens": "08:00",
         "closes": "18:00"
       }
@@ -1468,7 +1468,7 @@
         <span class="step-num">01</span>
         <span class="step-icon">💬</span>
         <h3>Intake &amp; Wensen</h3>
-        <p>We bespreken jouw idee, wensen en budget. Geen standaardoplossingen – alles is op maat.</p>
+        <p>We bespreken jouw idee en wensen. Geen standaardoplossingen – alles is op maat.</p>
       </div>
       <div class="step">
         <span class="step-num">02</span>
@@ -1554,7 +1554,7 @@
       <img id="photo-viewer-img" src="" alt="" />
       <button class="photo-viewer-close" onclick="closeViewer()" aria-label="Sluiten">&#x2715;</button>
     </div>
-    <p class="portfolio-cta-text">Meer zien? Bekijk alle projecten op onze <a href="https://www.instagram.com/wm_sign/" target="_blank">Instagram</a>.</p>
+    <p class="portfolio-cta-text">Meer zien? Bekijk alle projecten op onze <a href="https://www.instagram.com/wm_sign/" target="_blank" rel="noopener noreferrer">Instagram</a>.</p>
   </div>
 </section>
 
@@ -1642,25 +1642,25 @@
         <div class="form-step" id="stap-1">
           <p class="step-intro">Welke dienst heb je nodig?</p>
           <div class="dienst-cards">
-            <div class="dienst-card" onclick="selectDienst(this, 'logo')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, 'logo')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'logo');}">
               <span>🎨</span><strong>Logo & ontwerp</strong><small>Visuele identiteit</small>
             </div>
-            <div class="dienst-card" onclick="selectDienst(this, '3dlogo')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, '3dlogo')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'3dlogo');}">
               <span>🔷</span><strong>3D Logo</strong><small>Gevel of interieur</small>
             </div>
-            <div class="dienst-card" onclick="selectDienst(this, 'raam')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, 'raam')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'raam');}">
               <span>🪟</span><strong>Raambestickering</strong><small>Print of frosting</small>
             </div>
-            <div class="dienst-card" onclick="selectDienst(this, 'wand')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, 'wand')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'wand');}">
               <span>🧱</span><strong>Wanddecoratie</strong><small>Wallwrap of folie</small>
             </div>
-            <div class="dienst-card" onclick="selectDienst(this, 'keuken')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, 'keuken')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'keuken');}">
               <span>🍳</span><strong>Keuken wrappen</strong><small>Kasten & fronten</small>
             </div>
-            <div class="dienst-card" onclick="selectDienst(this, 'auto')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, 'auto')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'auto');}">
               <span>🚗</span><strong>Autobelettering</strong><small>Wrap of sticker</small>
             </div>
-            <div class="dienst-card" onclick="selectDienst(this, 'anders')">
+            <div class="dienst-card" role="button" tabindex="0" onclick="selectDienst(this, 'anders')" onkeydown="if(event.key==='Enter'||event.key===' '){selectDienst(this,'anders');}">
               <span>✨</span><strong>Anders / combinatie</strong><small>Meerdere diensten</small>
             </div>
           </div>
@@ -1777,19 +1777,7 @@
             <div class="form-group"><label>Telefoonnummer</label><input type="tel" name="telefoon" placeholder="+31 6 ..." /></div>
           </div>
           <div class="form-group"><label>E-mailadres *</label><input type="email" name="email" placeholder="jouw@email.nl" required /></div>
-          <div class="form-group">
-            <label>Globaal budget <span style="color:var(--gray);font-weight:400;">(optioneel)</span></label>
-            <select name="budget">
-              <option value="">Wat is je richtlijn?</option>
-              <option>Tot €250</option>
-              <option>€250 – €500</option>
-              <option>€500 – €1.000</option>
-              <option>€1.000 – €2.500</option>
-              <option>€2.500+</option>
-              <option>Weet ik nog niet</option>
-            </select>
-          </div>
-          <div class="form-group"><label>Extra opmerkingen</label><textarea name="opmerkingen" rows="3" placeholder="Zijn er nog dingen die we moeten weten?"></textarea></div>
+          <div class="form-group" id="stap3-omschrijving"><label>Korte omschrijving van je wens *</label><textarea name="opmerkingen" rows="4" placeholder="Bijv: logo op de gevel van mijn winkel, raamfolie voor de etalage, autobelettering voor 2 bedrijfswagens..." required></textarea></div>
           <div class="step-buttons">
             <button type="button" class="btn-back" onclick="gotoStap(2)">← Terug</button>
             <button type="submit" class="form-submit">Verstuur gratis offerte aanvraag →</button>
@@ -1798,7 +1786,7 @@
             <input type="checkbox" id="privacy-akkoord" name="privacy" value="akkoord" required style="margin-top:3px;accent-color:var(--orange);width:16px;height:16px;flex-shrink:0;" />
             <label for="privacy-akkoord" style="font-size:12px;color:var(--gray);cursor:pointer;line-height:1.5;">Ik ga akkoord met de <a href="privacyverklaring.html" style="color:var(--orange);text-decoration:none;">privacyverklaring</a> van WM Sign.</label>
           </div>
-          <p id="form-msg" style="color:var(--orange);font-size:14px;margin-top:12px;display:none;">✓ Bedankt! We nemen zo snel mogelijk contact met je op.</p>
+          <p id="form-msg" style="color:var(--orange);font-size:14px;margin-top:12px;display:none;">✓ Bedankt! We nemen binnen 24 uur contact met je op.</p>
         </div>
 
       </form>
@@ -1825,7 +1813,7 @@
           <div class="contact-icon">⭐</div>
           <div class="contact-item-text">
             <strong>Tevreden klant?</strong>
-            <a href="https://g.page/r/CT3KKqexMQRIEBM/review" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;background:var(--gradient);color:var(--white);padding:8px 18px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.5px;">Laat een Google review achter →</a>
+            <a href="https://g.page/r/CT3KKqexMQRIEBM/review" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;background:var(--gradient);color:var(--white);padding:8px 18px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.5px;">Laat een Google review achter →</a>
           </div>
         </div>
 
@@ -1834,11 +1822,11 @@
           <div class="contact-item-text">
             <strong>Volg ons</strong>
             <div class="social-links">
-              <a href="https://www.instagram.com/wm_sign/" target="_blank" class="social-link">
+              <a href="https://www.instagram.com/wm_sign/" target="_blank" rel="noopener noreferrer" class="social-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
                 Instagram
               </a>
-              <a href="https://www.tiktok.com/@wm_sign" target="_blank" class="social-link">
+              <a href="https://www.tiktok.com/@wm_sign" target="_blank" rel="noopener noreferrer" class="social-link">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.83a8.17 8.17 0 004.77 1.52V6.9a4.85 4.85 0 01-1-.21z"/></svg>
                 TikTok
               </a>
@@ -1853,7 +1841,7 @@
 <!-- WHATSAPP FLOAT -->
 <div class="whatsapp-wrapper">
 <span class="whatsapp-label">App ons</span>
-<a href="https://wa.me/31683593652" target="_blank" class="whatsapp-float" aria-label="Chat via WhatsApp">
+<a href="https://wa.me/31683593652" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat via WhatsApp">
   <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.551 4.1 1.514 5.829L.057 23.428a.75.75 0 0 0 .915.915l5.599-1.457A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.718 9.718 0 0 1-4.953-1.355l-.355-.211-3.676.957.974-3.566-.229-.368A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
@@ -1933,6 +1921,12 @@
     el.classList.add('selected');
     huidigeDienst = dienst;
     document.getElementById('gekozen-dienst').value = dienst;
+    // Verberg omschrijvingsveld in stap 3 als "anders" gekozen is (stap 2 heeft al een textarea)
+    const omschrijvingVeld = document.getElementById('stap3-omschrijving');
+    if (omschrijvingVeld) {
+      omschrijvingVeld.style.display = dienst === 'anders' ? 'none' : '';
+      omschrijvingVeld.querySelector('textarea').required = dienst !== 'anders';
+    }
     gotoStap(2);
   }
 
@@ -2184,6 +2178,7 @@
     if (e.key === 'ArrowRight') nextPhoto();
     if (e.key === 'ArrowLeft') prevPhoto();
   });
+
 </script>
 
 <!-- COOKIE NOTICE -->
